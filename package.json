@@ -1,0 +1,29 @@
+{
+  "name": "codesandbox-importers",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "yarn build:dependencies && lerna run build --scope codesandbox --scope git-converter --parallel",
+    "build:git-extractor": "yarn build:dependencies && lerna run build --scope git-converter",
+    "build:dependencies": "lerna run build --scope codesandbox-import-utils --scope codesandbox-import-util-types --stream",
+    "test": "lerna run test",
+    "start": "lerna run start --stream",
+    "dev": "lerna run dev --stream"
+  },
+  "author": "",
+  "devDependencies": {
+    "jest": "^29.6.2",
+    "lerna": "^7.1.5",
+    "prettier": "^2.2.1",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^4.3.0"
+  },
+  "workspaces": [
+    "packages/cli",
+    "packages/git-extractor",
+    "packages/import-utils",
+    "packages/types"
+  ]
+}
